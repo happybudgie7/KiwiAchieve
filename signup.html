@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up — KiwiAchieve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav__brand">KiwiAchieve</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="find-tutor.html">Find a tutor</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="signup.html" class="nav__cta">Sign in</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom: 24px;">
+      <h1 class="hero__title" style="font-size:40px;">Join KiwiAchieve</h1>
+      <p class="hero__sub">No real names or photos needed — just a username and an avatar. Choose how you'd like to get started.</p>
+    </section>
+
+    <section class="signup">
+      <div class="path-toggle" role="tablist" aria-label="Sign up as">
+        <button class="path-toggle__btn is-active" id="tabStudent" role="tab" aria-selected="true">I need help</button>
+        <button class="path-toggle__btn" id="tabTutor" role="tab" aria-selected="false">I want to volunteer</button>
+      </div>
+
+      <!-- STUDENT FORM -->
+      <form class="form-card" id="formStudent">
+        <h2>Sign up for tutoring</h2>
+        <p class="form-card__sub">Free for every NZ student. Takes about a minute.</p>
+
+        <div class="field">
+          <label for="studentUsername">Choose a username</label>
+          <input type="text" id="studentUsername" name="studentUsername" placeholder="e.g. quiet_kiwi_22" required />
+          <span class="hint">This is what tutors will see — no real names needed.</span>
+        </div>
+
+        <div class="field">
+          <label for="studentPassword">Create a password</label>
+          <input type="password" id="studentPassword" name="studentPassword" required />
+        </div>
+
+        <div class="field">
+          <label for="studentEmail">Parent/guardian or contact email</label>
+          <input type="email" id="studentEmail" name="studentEmail" required />
+          <span class="hint">Used for account recovery and safety check-ins only — never shown publicly.</span>
+        </div>
+
+        <div class="field">
+          <label for="studentSubject">Subject you'd like help with</label>
+          <select id="studentSubject" name="studentSubject" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option>Mathematics</option>
+            <option>English</option>
+            <option>Chemistry</option>
+            <option>Biology</option>
+            <option>Physics</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Pick an avatar</label>
+          <div class="avatar-grid">
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="fern" />🌿</label>
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="sun" />☀️</label>
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="wave" />🌊</label>
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="mountain" />⛰️</label>
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="star" />⭐</label>
+            <label class="avatar-option"><input type="radio" name="studentAvatar" value="moon" />🌙</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Create my account</button>
+      </form>
+
+      <!-- TUTOR FORM -->
+      <form class="form-card is-hidden" id="formTutor">
+        <h2>Apply to become a tutor</h2>
+        <p class="form-card__sub">All tutors are manually verified before they can take bookings. Please allow a few days for review.</p>
+
+        <div class="field">
+          <label for="tutorUsername">Choose a username</label>
+          <input type="text" id="tutorUsername" name="tutorUsername" placeholder="e.g. calm_chem_tutor" required />
+          <span class="hint">Shown to students — no real names needed.</span>
+        </div>
+
+        <div class="field">
+          <label for="tutorPassword">Create a password</label>
+          <input type="password" id="tutorPassword" name="tutorPassword" required />
+        </div>
+
+        <div class="field">
+          <label for="tutorEmail">Contact email</label>
+          <input type="email" id="tutorEmail" name="tutorEmail" required />
+          <span class="hint">Used for verification and booking alerts — never shown publicly.</span>
+        </div>
+
+        <div class="field">
+          <label for="tutorSubject">Subject you'll tutor</label>
+          <select id="tutorSubject" name="tutorSubject" required>
+            <option value="" disabled selected>Select one subject</option>
+            <option>Mathematics</option>
+            <option>English</option>
+            <option>Chemistry</option>
+            <option>Biology</option>
+            <option>Physics</option>
+            <option>Other</option>
+          </select>
+          <span class="hint">Each tutor covers one subject, so students always know who to book.</span>
+        </div>
+
+        <div class="field">
+          <label for="tutorNcea">NCEA results in this subject</label>
+          <textarea id="tutorNcea" name="tutorNcea" placeholder="e.g. NCEA Level 3 Chemistry — Excellence"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="tutorCv">Upload your CV</label>
+          <div class="file-drop"><strong>Click to upload</strong> or drag your file here — PDF preferred</div>
+        </div>
+
+        <div class="field">
+          <label for="tutorZoom">Preferred time for a verification chat</label>
+          <input type="datetime-local" id="tutorZoom" name="tutorZoom" required />
+          <span class="hint">A short online chat with our team before you're approved to tutor.</span>
+        </div>
+
+        <div class="field">
+          <label>Pick an avatar</label>
+          <div class="avatar-grid">
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="fern" />🌿</label>
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="sun" />☀️</label>
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="wave" />🌊</label>
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="mountain" />⛰️</label>
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="star" />⭐</label>
+            <label class="avatar-option"><input type="radio" name="tutorAvatar" value="moon" />🌙</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Submit application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>KiwiAchieve &middot; made by NZ students, for NZ students.</p>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="find-tutor.html">Find a tutor</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
